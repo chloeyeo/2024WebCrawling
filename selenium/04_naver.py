@@ -11,9 +11,11 @@ options.add_experimental_option("detach", True) # stop the webdriver from turnin
 options.add_argument("--start-maximized") # start webdriver with max browser screen size
 # options.add_argument("headless") # so we don't see the webdriver in browser and it just runs in background
 
+searchKeyword = input("Search: ")
+
 service = Service()
 driver = webdriver.Chrome(service=service, options=options) # start a webdriver and make its options set to chrome
-driver.get("https://search.shopping.naver.com/search/all?query=노트북")
+driver.get(f"https://search.shopping.naver.com/search/all?query={searchKeyword}")
 action = driver.find_element(By.CSS_SELECTOR, "body")
 
 for i in range(11):
