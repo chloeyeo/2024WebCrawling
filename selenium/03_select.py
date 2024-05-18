@@ -23,3 +23,6 @@ driver.get("https://www.naver.com")
 search = driver.find_element(By.ID, "query") # 네이버 검색창 input element의 id="query" 이기 때문에 By.ID 를 "query"라고 지정해준거임.
 search.click() # 그 검색창 element를 인위적으로 클릭해준다.
 search.send_keys("모니터", Keys.ENTER) # 검색창에 "모니터" 쓰고 엔터키 누른다 (=검색).
+
+more_info = driver.find_element(By.XPATH, '//*[@id="main_pack"]/section[1]/div[1]/div[3]/div[1]/div[1]/ul/li[1]/div/div/a')
+more_info.click()
