@@ -10,5 +10,9 @@ options.add_argument("--start-maximized") # start webdriver with max browser scr
 
 service = Service()
 driver = webdriver.Chrome(service=service, options=options) # start a webdriver and make its options set to chrome
+# webdriver is used for dynamic crawling - to get the data dynamically as if the chrome webdriver is a person
+# it will be perceived as if the webdriver is a person because we're setting its options as chrome
+# so our webdriver with chrome options will be recognized as a Chrome browser (=thus perceive this as a human/coming from a human
+# as if a human actually opened their browser to visit the web pages when it's actually our webdriver crawling).
 
 driver.get("https://www.naver.com")
