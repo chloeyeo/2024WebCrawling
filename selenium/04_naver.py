@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
+import time
+import random
 
 options = Options()
 options.add_experimental_option("excludeSwitches", ["enable-logging"]) # remove any non-necessary logs
@@ -17,6 +19,10 @@ service = Service()
 driver = webdriver.Chrome(service=service, options=options) # start a webdriver and make its options set to chrome
 driver.get(f"https://search.shopping.naver.com/search/all?query={searchKeyword}")
 action = driver.find_element(By.CSS_SELECTOR, "body")
+
+rand = random.uniform(1,5)
+time.sleep(rand) # wait for 5 seconds
+driver.implicitly_wait(rand) # wait until the web page shows up
 
 for i in range(11):
     # delete 키 오른쪽 바로 옆에 있는 end키를 11번 눌러서 페이지 끝까지 내린다.
