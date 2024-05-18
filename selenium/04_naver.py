@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import pandas as pd
 
 options = Options()
 options.add_experimental_option("excludeSwitches", ["enable-logging"]) # remove any non-necessary logs
@@ -26,4 +27,7 @@ for item in tree:
     name = item.find_element(By.CLASS_NAME, "product_title__Mmw2K").text
     price = item.find_element(By.CLASS_NAME, "price_num__S2p_v").text.replace("원", " KRW")
     link = item.find_element(By.CLASS_NAME, "product_link__TrAac").get_attribute("href")
-    print(link)
+    data.append([name,price,link])
+    
+df1 = pd.DataFrame(data, columns=["name", "price", "link"])
+df1.to_csv("result2", index=False)
